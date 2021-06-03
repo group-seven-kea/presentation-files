@@ -37,7 +37,8 @@
 
     1. Install RabbitMQ server, or connect to one remotely. (localhost works fine as proof of concept.)
     2. Start your RabbitMQ service.
-    3. In notifications/send_sms set up your public/private keys ("AC34d49b3064b283478371ff8859b8c819", "03e6dfcfd06969c1b53f2d5c5de9ab9f")
+    3. In notifications/send_sms set up your public/private keys 
+    ("AC34d49b3064b283478371ff8859b8c819", "03e6dfcfd06969c1b53f2d5c5de9ab9f")
     4. Start send_sms.py microservice
 
 
