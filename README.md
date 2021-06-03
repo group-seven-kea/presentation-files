@@ -1,7 +1,7 @@
 # Live demo
-    To simplify the process, we also have hosted the banking application, you can connect to it through domain "http://keabank.tech/"
-    SMS microservice has been excluded from the live demo, as the balance from our sms provider is limited, however it is fully functional
-    So feel free to test it locally.
+    We also have hosted the banking application you can connect to it through domain "http://keabank.tech/"
+    SMS microservice has been excluded from the live demo, as the balance from our sms provider is limited.
+    It is still functional, so feel free to test it locally.
     First page load time can be a bitlonger as heroku after 30 mins of no traffic will go to "sleep mode"
 
 
@@ -37,7 +37,7 @@
 
     1. Install RabbitMQ server, or connect to one remotely. (localhost works fine as proof of concept.)
     2. Start your RabbitMQ service.
-    3. In notifications/send_sms set up your public/private keys ("AC34d49b3064b283478371ff8859b8c819", "03e6dfcfd06969c1b53f2d5c5de9ab9f") (don't use a lot as the balance is limited.)
+    3. In notifications/send_sms set up your public/private keys ("AC34d49b3064b283478371ff8859b8c819", "03e6dfcfd06969c1b53f2d5c5de9ab9f")
     4. Start send_sms.py microservice
 
 
