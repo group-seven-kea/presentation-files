@@ -17,8 +17,10 @@
     1. Depending on the operating system, set up the necessary environmental variables.
     2. MONGODB_CONNECTION_STRING (MongoDB SRV string): mongodb+srv://tom:parole123@banking-app-python.zfwkg.mongodb.net/
     3. COIN_API_KEY (coinapi.io api key): 0C261169-D7AA-4B12-A252-78D3C7F3B83D
-    4. FLASK_APP (name of the main file): app.py
-    5. Alternatively insert those values in database.py, and cryptocurrency.py respectively.
+    4. TWILIO_PUBLIC_KEY (twilio.io public key): AC34d49b3064b283478371ff8859b8c819
+    5. TWILIO_PRIVATE_KEY (twilio.io private key): 03e6dfcfd06969c1b53f2d5c5de9ab9f
+    6. FLASK_APP (name of the main file): app.py
+    7. Alternatively insert those values in database.py, and cryptocurrency.py respectively.
 
 # Running the application
 
@@ -36,8 +38,4 @@
 
     1. Install the RabbitMQ server, or connect to one remotely. (localhost works fine as proof of concept)
     2. Start your RabbitMQ service either locally or on a remote server.
-    3. In notifications/send_sms set up your public/private keys. 
-    ("AC34d49b3064b283478371ff8859b8c819", "03e6dfcfd06969c1b53f2d5c5de9ab9f")
-    4. Open terminal and write "python send_sms.py" to start the microservice.
-
-
+    3. Open terminal and write "python send_sms.py" to start the microservice.
