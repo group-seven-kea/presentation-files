@@ -1,7 +1,8 @@
 import pika, sys, os
 from twilio.rest import Client
+from os import environ as env
 
-client = Client("public_key", "private key")
+client = Client(env.get("TWILIO_PUBLIC_KEY"), env.get("TWILIO_PRIVATE_KEY"))
 
 def main():
     """ Listens for messages that the main application will send to the queue. """
