@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block content %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var priceData = {{priceData|safe}}
+        var data = google.visualization.arrayToDataTable(priceData);
+
+        var options = {
+          curveType: 'function',
+          legend: { position: 'none' },
+          vAxes: {
+            // Adds titles to each axis.
+            0: {title: 'Price (USD)'},
+          },
+          backgroundColor: '#f7fbff',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+<div class="flex flex-col mt-10">
+   <div class="table-cell min-w-full py-2 align-middle sm:px-6 lg:px-8">
+      <div class="-my-2  sm:-mx-6 lg:-mx-8">
+         <div class="lg:grid lg:grid-cols-3">
+            <div>
+            
+               <div class="rounded px-8 lg:pt-6 lg:pb-8 mb-4 flex flex-col mx-auto max-w-lg">
+               <h1 class="text-2xl text-center my-10">Trade Bitcoin</h1>
+                  <form id="transfer-form">
+                    
+                     <div class="mb-2">
+                        <label class="block text-gray-900 text-sm mb-2" for="amount">
+                        Quantity
+                        </label>
+                        <input class="shadow-xs appearance-none border-red rounded w-full py-2 px-3 text-grey-darker mb-3" name="amount" id="amount" type="number" placeholder="Quantity (BTC)">
+                        <p class="text-indigo-500 text-sm m-2">Bitcoin Wallet: BTC {{crypto_wallet["balance"]|round(6, 'floor')}}</p>
+                        <p class="text-indigo-500 text-sm m-2 mb-10">Bank Account: DKK {{bank_account["balance"]}}</p>
+                     </div>
+                     <div class="flex items-center justify-start">
+                        <button id="buy-btn" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded mr-4 w-full" type="button">
+                        Buy
+                        </button>
+                        <button id="sell-btn" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded mr-4 w-full" type="button">
+                        Sell
+                        </button>
+                     </div><p class="text-red-300 lg:my-4 invisible" id="transfer-error"></p>
+                  </form>
+               </div>
+            </div>
+            <div class="col-span-2 -mt-5">
+                <div id="curve_chart" style="width: 900px; height: 500px"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</main>
+<script src="{{url_for('static', filename='ajax.js')}}"></script>
+<script src="{{url_for('static', filename='exchange.js')}}"></script>
+{% endblock content %}

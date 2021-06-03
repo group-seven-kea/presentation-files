@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block content %}
+<div class="overflow-hidden border-b border-gray-200 rounded-md ">
+         <h3 class="text-xl my-4 mx-6 text-indigo-400 my-10 text-center">Account overview</h3>
+            <table class="min-w-full overflow-x-scroll divide-y divide-gray-200 table-auto border ">
+               <thead>
+                  <tr class="bg-indigo-500">
+                     <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-white uppercase"
+                        >
+                        Account
+                     </th>
+                     <th
+                        scope="col"
+                        class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-3 text-xs font-medium tracking-wider text-left text-white uppercase"
+                        >
+                        Type
+                     </th>
+                     <th
+                        scope="col"
+                        class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-3 text-xs font-medium tracking-wider text-left text-white uppercase"
+                        >
+                        Identifyer / Address
+                     </th>
+                     <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-white uppercase"
+                        >
+                        Balance
+                     </th>
+
+                  </tr>
+               </thead>
+               <tbody class=" divide-y divide-gray-200">
+
+                  <tr class="transition-all ">
+                     <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                           <div class="ml-4">
+                              <div class="text-sm text-indigo-400 transaction-type">Bank account</div>
+                           </div>
+                        </div>
+                     </td>
+                     <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-indigo-400 transaction-sender">{{bank_account["account_type"]}}</div>
+                     </td>
+                     <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-indigo-400 transaction-receiver">{{bank_account["_id"]}}</div>
+                     </td>
+                     <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-4 whitespace-nowrap text-sm text-indigo-400 transaction-date">
+                     DKK {{bank_account["balance"]}}
+                     </td>
+                  </tr>
+                  <tr class="transition-all">
+                     <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                           <div class="ml-4">
+                              <div class="text-sm text-indigo-400 transaction-type">Cryptocurrency</div>
+                           </div>
+                        </div>
+                     </td>
+                     <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-indigo-400 transaction-sender">{{crypto_wallet["coin_id"]}}</div>
+                     </td>
+                     <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-indigo-400 transaction-receiver">{{crypto_wallet["address"]}}</div>
+                     </td>
+                     <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell px-6 py-4 whitespace-nowrap text-sm text-indigo-400 transaction-date">
+                     BTC {{crypto_wallet["balance"]|round(6, 'floor')}}
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+{% endblock content %}

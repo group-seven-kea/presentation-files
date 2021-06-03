@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>
+      Crypto Bank
+    </title>
+  </head>
+  <body style="background-color:#f7fbff">
+
+
+<nav class="bg-indigo-500">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-middle">
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            {% if session["user"] %}
+                <a href="http://127.0.0.1:5000/dashboard" class="text-white hover:bg-indigo-400 hover:text-white px-5 py-2 rounded-sm text-sm font-medium">Home</a>
+                <a href="http://127.0.0.1:5000/dashboard/loans" class="text-white hover:bg-indigo-400 hover:text-white px-5 py-2 rounded-sm text-sm font-medium">Loans</a>
+                <a href="http://127.0.0.1:5000/dashboard/cryptocurrency" class="text-white hover:bg-indigo-400 hover:text-white px-5 py-2 rounded-sm text-sm font-medium">Cryptocurrency</a>
+                <a href="http://127.0.0.1:5000/user/logout" class="text-white hover:bg-indigo-400 hover:text-white px-5 py-2 rounded-sm text-sm font-medium">Logout</a>
+
+            {% else %}
+              <a href="http://127.0.0.1:5000/user/login" class="text-white hover:bg-indigo-400 hover:text-white px-5 py-2 rounded-sm text-sm font-medium">Sign in</a>
+
+            {% endif %}
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</nav>
+
+
+    <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
+    <div class="container mx-auto px-4">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+    </div>
+  </body>
+</html>
