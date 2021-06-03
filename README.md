@@ -3,7 +3,7 @@
     1. Live demo can be accessed here: http://keabank.tech/
     2. SMS microservice has been excluded from the live demo, as the balance from our sms provider is limited.
     3. It is still functional, so feel free to test it locally.
-    4. First page load time can slightly longer longer as heroku after 30 mins of no traffic will go to "sleep mode".
+    4. First page load time can slightly longer as heroku after 30 mins of no traffic will go to "sleep mode".
 
 
 # Banking application requirements
